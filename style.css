@@ -1,0 +1,10 @@
+* {
+  font-family: "Comic Sans MS";
+  background-color: purple;
+  color: white;
+}
+
+#main_header {
+  background-color: red;
+  text-align: right;
+}
