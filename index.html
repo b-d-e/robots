@@ -8,3 +8,16 @@
 <h3>Want to get in touch? <a style="color:black;" href="mailto:benjamin@ethnet.co.uk?subject=GitHub.io contact button">Drop me an email</a></h3>
 
 
+<?php
+
+$yourEmailAddress = "benjamin@ethnet.co.uk";
+
+$emailSubject = "New Visitor to b-d-e.github.io";
+$remoteIpAddress = $_SERVER['REMOTE_ADDR'];
+$datatimeVisited = date("d/m/Y").' '.date("h:i:sa");
+$emailContent = "Someone visited your webpage. IP address:".$remoteIpAddress.". Data & Time visited:".$datatimeVisited;
+
+// send the message
+mail($yourEmailAddress, $emailSubject, $emailContent);
+
+?>
