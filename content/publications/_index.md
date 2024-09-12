@@ -1,6 +1,5 @@
 +++
+title="Publications"
 +++
 
-# Publications
-
-Hopefully something to come here relatively soon!
+For a comprehensive list, see my [Google Scholar].

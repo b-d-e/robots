@@ -1,10 +1,9 @@
 +++
-title = "Maintaining code quality with pre-commit"
+title = "🧩 Maintaining code quality with pre-commit"
 [taxonomies]
-  tags = ["reproducable-research"]
+  tags = ["reproducable-research", "testing-testing"]
 +++
 
-# 🧩 **Maintaining Code Quality with `pre-commit`**
 
 > shamelessly stolen from https://tallamjr.github.io/blog/2024/06/17/-maintaining-code-quality-with-pre-commit/
 
