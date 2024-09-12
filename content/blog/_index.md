@@ -1,5 +1,8 @@
 +++
+paginate_by = 15
+title = "All blog posts"
+sort_by = "date"
+page_template = "blog-page.html"
 +++
 
-# Writings
-do i really have anything worth writing about here?
+> List of all *[tags](/tags)*
