@@ -13,7 +13,7 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 
 Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
 
-![Benjamin Etheridge](path-to-image.jpg)
+<!-- ![Me](assets/bongo.png) -->
 
 ## Contact
 benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
