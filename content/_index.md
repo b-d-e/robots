@@ -4,6 +4,7 @@
 # Benjamin Etheridge
 
 ## About
+
 DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.ac.uk/~parg/) at the University of Oxford. 
 
 - Supervised by Prof. [Stephen Roberts](https://www.robots.ox.ac.uk/~sjrob/) and Prof. [Sadie Creese](https://www.cs.ox.ac.uk/people/sadie.creese/).
@@ -11,6 +12,8 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 - Interested in how (/whether!) model security can be enhanced by training with system-informed inductive biases.
 
 Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
+
+![Benjamin Etheridge](path-to-image.jpg)
 
 ## Contact
 benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk

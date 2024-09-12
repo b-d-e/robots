@@ -1,0 +1,9 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Adjust spacing between columns as needed */
+}
+
+.grid-item {
+    /* Optional styling for each grid item */
+}
