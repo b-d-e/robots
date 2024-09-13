@@ -4,17 +4,22 @@ title="Benjamin Etheridge"
 
 # Benjamin Etheridge
 
-## About
+<div style="display: flex; align-items: center; gap: 20px;">
+  <div>
+<h2>About</h2>
 
-DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.ac.uk/~parg/) at the University of Oxford. 
+DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.ac.uk/~parg/) at the University of Oxford.
 
 - Supervised by Prof. [Stephen Roberts](https://www.robots.ox.ac.uk/~sjrob/) and Prof. [Sadie Creese](https://www.cs.ox.ac.uk/people/sadie.creese/).
 
 - Interested in how (/whether!) model security can be enhanced by training with system-informed inductive biases.
 
 Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
-
-<!-- ![Me](assets/bongo.png) -->
+</div>
+<div>
+<img src="headshot-low-res.jpg" alt="Me" style="width: 40em;">
+</div>
+</div>
 
 ## Contact
 benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
