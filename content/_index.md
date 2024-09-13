@@ -29,6 +29,6 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 
 ## Links
 - [github/b-d-e](https://github.com/b-d-e)
-- [x/bthrdg](https://x.com/bthrdg)
+- [twitter/bthrdg](https://x.com/bthrdg)
 - [orcid/0009-0009-1325-7554](https://orcid.org/0009-0009-1325-7554)
 - [linkedin/b-d-e](https://www.linkedin.com/in/b-d-e/)
