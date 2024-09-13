@@ -21,7 +21,7 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 </div>
 
 Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
-Previously, Computer Science MEng at Durham.
+Previously, Computer Science MEng at Durham University.
 
 ## Contact
 benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
