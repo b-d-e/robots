@@ -29,6 +29,18 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 
 ## Links
 - [github/b-d-e](https://github.com/b-d-e)
+
+<iframe
+  src="https://benjaminetheridge.com/gitgraph"
+  width="80%"
+  height="80px"
+  style="background-color: transparent; padding-left: 40px; border: none;"
+  scrolling="no"
+  frameborder="0"
+></iframe>
+
 - [twitter/bthrdg](https://x.com/bthrdg)
 - [orcid/0009-0009-1325-7554](https://orcid.org/0009-0009-1325-7554)
 - [linkedin/b-d-e](https://www.linkedin.com/in/b-d-e/)
+
+
