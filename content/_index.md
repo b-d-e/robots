@@ -14,12 +14,14 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 
 - Interested in how (/whether!) model security can be enhanced by training with system-informed inductive biases.
 
-Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
 </div>
 <div>
 <img src="headshot-low-res.jpg" alt="Me" style="width: 40em;">
 </div>
 </div>
+
+Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
+Previously, Computer Science MEng at Durham.
 
 ## Contact
 benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
