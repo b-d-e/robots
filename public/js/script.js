@@ -18,30 +18,36 @@ updateGitGraph = (isDarkMode, fade=true) => {
         'https://benjaminetheridge.com/gitgraph/dark.html?nocache=1' :
         'https://benjaminetheridge.com/gitgraph/light.html?nocache=1';
 
-    // fade between
     if (!fade) {
         gitGraph.setAttribute('src', gitGraphUrl);
         return;
     }
+    // fade out 0.1s before changing the src then fading in 0.1s
+    // Instantly make the iframe invisible
+    gitGraph.style.transition = 'none';  // Remove any transition for instant disappearance
     gitGraph.style.opacity = 0;
-    setTimeout(() => {
-        gitGraph.setAttribute('src', gitGraphUrl);
-        gitGraph.style.opacity = 1;
-    }, 500);
+
+    // Change the src instantly
     gitGraph.setAttribute('src', gitGraphUrl);
+
+    // Use a slight delay and then fade it back in slowly
+    setTimeout(() => {
+        gitGraph.style.transition = 'opacity 1s ease-in-out';  // Restore fade-in transition
+        gitGraph.style.opacity = 1;
+    }, 10);  // Small timeout to ensure src change is registered before the transition
 }
 
 // Function to update the theme based on the current mode
 const updateTheme = (isDarkMode) => {
     const theme = isDarkMode ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
-    updateGitGraph(isDarkMode, false);
     updateThemeIcon(isDarkMode);
 };
 
 // Function to toggle the theme
 const toggleTheme = () => {
     const isDarkMode = toggleButton.checked;
+    updateGitGraph(isDarkMode, true);
     updateTheme(isDarkMode);
     themeSound.play();
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -62,6 +68,7 @@ const initializeTheme = () => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     let isDarkMode = storedTheme === 'dark' || (!storedTheme && prefersDark);
     toggleButton.checked = isDarkMode;
+    updateGitGraph(isDarkMode, false);
     updateTheme(isDarkMode);
 };
 
