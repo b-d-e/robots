@@ -4,6 +4,7 @@ title="Benjamin Etheridge"
 
 # Benjamin Etheridge
 
+
 <div style="display: flex; align-items: center; gap: 20px;">
   <div>
 <h2>About</h2>
@@ -16,7 +17,7 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 
 </div>
 <div>
-<img src="headshot-low-res.jpg" alt="Me" style="width: 40em;">
+<img defer id="headshot" src="headshot-low-res.jpg" alt="Me" style="width: 40em;">
 </div>
 </div>
 
@@ -30,11 +31,13 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 ## Links
 - [github/b-d-e](https://github.com/b-d-e)
 
+
 <iframe
+  id="gitgraph"
   src="https://benjaminetheridge.com/gitgraph?nocache=1"
   width="80%"
   height="80px"
-  style="background-color: transparent; padding-left: 40px; border: none;"
+  style="padding-left: 40px; border: none;"
   scrolling="no"
   frameborder="0"
 ></iframe>
@@ -42,5 +45,3 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 - [twitter/bthrdg](https://x.com/bthrdg)
 - [orcid/0009-0009-1325-7554](https://orcid.org/0009-0009-1325-7554)
 - [linkedin/b-d-e](https://www.linkedin.com/in/b-d-e/)
-
-
