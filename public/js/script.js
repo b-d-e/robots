@@ -32,9 +32,9 @@ updateGitGraph = (isDarkMode, fade=true) => {
 
     // Use a slight delay and then fade it back in slowly
     setTimeout(() => {
-        gitGraph.style.transition = 'opacity 1s ease-in-out';  // Restore fade-in transition
+        gitGraph.style.transition = 'opacity 0.2s ease-in-out';  // Restore fade-in transition
         gitGraph.style.opacity = 1;
-    }, 10);  // Small timeout to ensure src change is registered before the transition
+    }, 200);  // Small timeout to ensure src change is registered before the transition
 }
 
 // Function to update the theme based on the current mode
