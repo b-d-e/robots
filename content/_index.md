@@ -31,7 +31,7 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 - [github/b-d-e](https://github.com/b-d-e)
 
 <iframe
-  src="https://benjaminetheridge.com/gitgraph"
+  src="https://benjaminetheridge.com/gitgraph?nocache=1"
   width="80%"
   height="80px"
   style="background-color: transparent; padding-left: 40px; border: none;"
