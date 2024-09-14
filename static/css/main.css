@@ -1,10 +1,4 @@
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 20px; /* Adjust spacing between columns as needed */
+#headshot {
+    width: 40em;
+    border: none;
 }
-
-.grid-item {
-    /* Optional styling for each grid item */
-}
-

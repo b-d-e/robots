@@ -56,7 +56,7 @@ const toggleTheme = () => {
     document.body.classList.add('theme-transition');
     setTimeout(() => {
         document.body.classList.remove('theme-transition');
-    }, 300);
+    }, 200);
 };
 
 // Event listener for theme toggle

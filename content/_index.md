@@ -1,6 +1,7 @@
 +++
 title="Benjamin Etheridge"
 +++
+<link rel="stylesheet" href="/css/main.css">
 
 # Benjamin Etheridge
 
@@ -17,7 +18,7 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 
 </div>
 <div>
-<img defer id="headshot" src="headshot-low-res.jpg" alt="Me" style="width: 40em;">
+<img defer id="headshot" src="headshot-low-res.jpg" alt="Me" style="">
 </div>
 </div>
 
