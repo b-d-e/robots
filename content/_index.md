@@ -35,8 +35,8 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 <iframe
   id="gitgraph"
   src="https://benjaminetheridge.com/gitgraph?nocache=1"
-  width="80%"
-  height="80px"
+  width="90%"
+  height="90px"
   style="padding-left: 40px; border: none;"
   scrolling="no"
   frameborder="0"
