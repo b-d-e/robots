@@ -9,10 +9,33 @@ const updateThemeIcon = (isDarkMode) => {
     themeIcon.querySelector('use').setAttribute('href', iconPath);
 };
 
+
+updateGitGraph = (isDarkMode, fade=true) => {
+    const gitGraph = document.getElementById('gitgraph');
+    // dark url - https://benjaminetheridge.com/gitgraph/dark.html?nocache=1
+    // light url - https://benjaminetheridge.com/gitgraph/light.html?nocache=1
+    const gitGraphUrl = isDarkMode ?
+        'https://benjaminetheridge.com/gitgraph/dark.html?nocache=1' :
+        'https://benjaminetheridge.com/gitgraph/light.html?nocache=1';
+
+    // fade between
+    if (!fade) {
+        gitGraph.setAttribute('src', gitGraphUrl);
+        return;
+    }
+    gitGraph.style.opacity = 0;
+    setTimeout(() => {
+        gitGraph.setAttribute('src', gitGraphUrl);
+        gitGraph.style.opacity = 1;
+    }, 500);
+    gitGraph.setAttribute('src', gitGraphUrl);
+}
+
 // Function to update the theme based on the current mode
 const updateTheme = (isDarkMode) => {
     const theme = isDarkMode ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
+    updateGitGraph(isDarkMode, false);
     updateThemeIcon(isDarkMode);
 };
 
@@ -37,26 +60,9 @@ toggleButton.addEventListener('change', toggleTheme);
 const initializeTheme = () => {
     const storedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDarkMode = storedTheme === 'dark' || (!storedTheme && prefersDark);
+    let isDarkMode = storedTheme === 'dark' || (!storedTheme && prefersDark);
     toggleButton.checked = isDarkMode;
-    // if URL is /
-    if (window.location.pathname === '/') {
-        updateTheme(false);
-        if (isDarkMode) {
-            // just change background - 31,33,36
-            document.body.style.backgroundColor = '#1f2124';
-        }
-        // wait for DOM to be fully loaded before updating the theme
-        // wait 0.1 seconds
-        setTimeout(() => {
-            // remove background color
-            document.body.style.backgroundColor = '';
-            updateTheme(isDarkMode);
-        }, 100);
-    }
-    else {
-        updateTheme(isDarkMode);
-    }
+    updateTheme(isDarkMode);
 };
 
 // Initialize the theme
@@ -64,3 +70,4 @@ initializeTheme();
 
 // Listen for changes in system preference
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initializeTheme);
+

@@ -34,13 +34,15 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 
 <iframe
   id="gitgraph"
-  src="https://benjaminetheridge.com/gitgraph?nocache=1"
+  src=""
   width="90%"
   height="90px"
-  style="padding-left: 40px; border: none;"
+  style="padding-left: 40px; border: none; transition: opacity 0.5s ease-in-out;"
   scrolling="no"
   frameborder="0"
 ></iframe>
+
+
 
 - [twitter/bthrdg](https://x.com/bthrdg)
 - [orcid/0009-0009-1325-7554](https://orcid.org/0009-0009-1325-7554)
