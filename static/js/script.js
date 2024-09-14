@@ -39,18 +39,24 @@ const initializeTheme = () => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDarkMode = storedTheme === 'dark' || (!storedTheme && prefersDark);
     toggleButton.checked = isDarkMode;
-    updateTheme(false);
-    if (isDarkMode) {
-        // just change background - 31,33,36
-        document.body.style.backgroundColor = '#1f2124';
+    // if URL is /
+    if (window.location.pathname === '/') {
+        updateTheme(false);
+        if (isDarkMode) {
+            // just change background - 31,33,36
+            document.body.style.backgroundColor = '#1f2124';
+        }
+        // wait for DOM to be fully loaded before updating the theme
+        // wait 0.1 seconds
+        setTimeout(() => {
+            // remove background color
+            document.body.style.backgroundColor = '';
+            updateTheme(isDarkMode);
+        }, 100);
     }
-    // wait for DOM to be fully loaded before updating the theme
-    // wait 0.1 seconds
-    setTimeout(() => {
-        // remove background color
-        document.body.style.backgroundColor = '';
+    else {
         updateTheme(isDarkMode);
-    }, 40);
+    }
 };
 
 // Initialize the theme
@@ -58,4 +64,3 @@ initializeTheme();
 
 // Listen for changes in system preference
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initializeTheme);
-
