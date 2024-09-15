@@ -11,30 +11,36 @@ const updateThemeIcon = (isDarkMode) => {
 
 
 updateGitGraph = (isDarkMode, fade=true) => {
-    const gitGraph = document.getElementById('gitgraph');
-    // dark url - https://benjaminetheridge.com/gitgraph/dark.html?nocache=1
-    // light url - https://benjaminetheridge.com/gitgraph/light.html?nocache=1
-    const gitGraphUrl = isDarkMode ?
-        'https://benjaminetheridge.com/gitgraph/dark.html?nocache=1' :
-        'https://benjaminetheridge.com/gitgraph/light.html?nocache=1';
+    // Check if element exists
+    if (document.getElementById('gitgraph')) {
+        const gitGraph = document.getElementById('gitgraph');
+        // dark url - https://benjaminetheridge.com/gitgraph/dark.html?nocache=1
+        // light url - https://benjaminetheridge.com/gitgraph/light.html?nocache=1
+        const gitGraphUrl = isDarkMode ?
+            'https://benjaminetheridge.com/gitgraph/dark.html?nocache=1' :
+            'https://benjaminetheridge.com/gitgraph/light.html?nocache=1';
 
-    if (!fade) {
+        if (!fade) {
+            gitGraph.setAttribute('src', gitGraphUrl);
+            return;
+        }
+        // fade out 0.1s before changing the src then fading in 0.1s
+        // Instantly make the iframe invisible
+        gitGraph.style.transition = 'none';  // Remove any transition for instant disappearance
+        gitGraph.style.opacity = 0;
+
+        // Change the src instantly
         gitGraph.setAttribute('src', gitGraphUrl);
+
+        // Use a slight delay and then fade it back in slowly
+        setTimeout(() => {
+            gitGraph.style.transition = 'opacity 0.2s ease-in-out';  // Restore fade-in transition
+            gitGraph.style.opacity = 1;
+        }, 200);  // Small timeout to ensure src change is registered before the transition
+    }
+    else {
         return;
     }
-    // fade out 0.1s before changing the src then fading in 0.1s
-    // Instantly make the iframe invisible
-    gitGraph.style.transition = 'none';  // Remove any transition for instant disappearance
-    gitGraph.style.opacity = 0;
-
-    // Change the src instantly
-    gitGraph.setAttribute('src', gitGraphUrl);
-
-    // Use a slight delay and then fade it back in slowly
-    setTimeout(() => {
-        gitGraph.style.transition = 'opacity 0.2s ease-in-out';  // Restore fade-in transition
-        gitGraph.style.opacity = 1;
-    }, 200);  // Small timeout to ensure src change is registered before the transition
 }
 
 // Function to update the theme based on the current mode
