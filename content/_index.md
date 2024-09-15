@@ -5,16 +5,15 @@ title="Benjamin Etheridge"
 
 # Benjamin Etheridge
 
-
 <div style="display: flex; align-items: center; gap: 20px;">
   <div>
-<h2>About</h2>
 
+## About
 DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.ac.uk/~parg/) at the University of Oxford.
 
 - Supervised by Prof. [Stephen Roberts](https://www.robots.ox.ac.uk/~sjrob/) and Prof. [Sadie Creese](https://www.cs.ox.ac.uk/people/sadie.creese/).
 
-- Interested in how (/whether!) model security can be enhanced by training with system-informed inductive biases.
+- Interested in model security, adversarial attacks, and better understanding the attributes which makes particular systems more (in)secure. 
 
 </div>
 <div>
