@@ -1,4 +1,6 @@
 #headshot {
     width: 46em;
     border: none;
+    /* remove filter */
+    opacity: 1;
 }
