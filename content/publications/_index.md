@@ -2,4 +2,6 @@
 title="Publications"
 +++
 
-For a comprehensive list, see my [Google Scholar].
+Hopefully there'll be something here in due course!
+
+<!-- For a comprehensive list, see my [Google Scholar].-->

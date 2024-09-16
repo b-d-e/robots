@@ -13,7 +13,7 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 
 - Supervised by Prof. [Stephen Roberts](https://www.robots.ox.ac.uk/~sjrob/) and Prof. [Sadie Creese](https://www.cs.ox.ac.uk/people/sadie.creese/).
 
-- Interested in model security under 'real world' constraints, adversarial attacks, and better understanding the attributes which makes particular systems more (in)secure. 
+- Interested in adversarial attacks, model security under 'real world' constraints, and better understanding the attributes which makes particular systems more (in)secure. 
 
 </div>
 <div>
@@ -27,6 +27,7 @@ Previously, Computer Science MEng at Durham University.
 ## Contact
 benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 
+<!-- [PGP Key](/pgp) -->
 
 ## Links
 - [github/b-d-e](https://github.com/b-d-e)

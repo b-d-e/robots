@@ -25,7 +25,7 @@ highlight_code = true
 
 header_nav = [
    #{ url = "", name_en = "" }
-   { url = "/", name_en = " /home " },
-   { url = "/publications", name_en = " /publications " },
-   { url = "/blog", name_en = " /blog " }
+   { url = "/", name_en = " /home" },
+   { url = "/publications", name_en = " /publications" }, 
+   { url = "/writing", name_en = " /writing" }
 ]
