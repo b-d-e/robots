@@ -32,17 +32,15 @@ benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
 ## Links
 - [github/b-d-e](https://github.com/b-d-e)
 
-
 <iframe
   id="gitgraph"
-  src=""
   width="90%"
   height="90px"
+  src=""
   style="padding-left: 40px; border: none; transition: opacity 0.5s ease-in-out;"
   scrolling="no"
   frameborder="0"
 ></iframe>
-
 
 
 - [twitter/bthrdg](https://x.com/bthrdg)
