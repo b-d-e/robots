@@ -25,8 +25,7 @@ Senior Research Assistant (part-time) at [The Alan Turing Institute](https://tur
 Previously, Computer Science MEng at Durham University.
 
 ## Contact
-benjamin[dot]etheridge[at]eng[dot]ox[dot]ac[dot]uk
-
+be[at]robots[dot]ox[dot]ac[dot]uk
 <!-- [PGP Key](/pgp) -->
 
 ## Links
