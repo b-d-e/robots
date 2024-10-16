@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="robots" content="index, follow">
+
+
+
+
+
+
+
+
+
+
+
+
+<title>🧩 Maintaining code quality with pre-commit</title>
+
+
+
+<meta name="title" content="🧩 Maintaining code quality with pre-commit">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://benjaminetheridge.com/writing/pre-commit/">
+
+<meta property="og:site_name" content="">
+
+
+<meta property="og:title" content="🧩 Maintaining code quality with pre-commit">
+
+
+
+<meta property="og:image" content="https:&#x2F;&#x2F;benjaminetheridge.com&#x2F;favicon.png">
+
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://benjaminetheridge.com/writing/pre-commit/">
+
+<meta property="twitter:title" content="🧩 Maintaining code quality with pre-commit">
+
+
+
+<meta property="twitter:image" content="https:&#x2F;&#x2F;benjaminetheridge.com&#x2F;favicon.png">
+
+
+<link rel="canonical" href="https://benjaminetheridge.com/writing/pre-commit/">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://benjaminetheridge.com/favicon.png">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/reset-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/suCSS-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://benjaminetheridge.com/css/colours.css"/>
+<link rel="stylesheet" type="text/css" href="https://benjaminetheridge.com/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="https://benjaminetheridge.com/css/main.css" >
+
+<script src="https://benjaminetheridge.com/js/script.js" defer></script>
+
+
+</head>
+<body>
+      <header>
+          
+
+   
+
+
+
+   <nav id="nav-bar">
+      
+         <a href="https://benjaminetheridge.com" class="">
+            
+             &#x2F;home
+         </a>
+      
+      <div>
+         <input type="checkbox" id="theme-toggle" style="display: none;">
+         <label for="theme-toggle" id="theme-toggle-label">
+            <svg id="theme-icon" class="icons">
+               <use href="https://benjaminetheridge.com/icons.svg#lightMode"></use>
+            </svg>
+         </label>
+         <audio id="theme-sound">
+            <source src="https://benjaminetheridge.com/click.ogg" type="audio/ogg">
+         </audio>
+      </div>
+   </nav>
+
+
+
+      </header>
+      <main>
+          
+<div><a href="..">..</a>/<span class="accent-data">pre-commit</span></div>
+<time datetime="2024-09-12">Published on: <span class="accent-data">2024-09-12</span></time>
+
+<h1>🧩 Maintaining code quality with pre-commit</h1>
+
+
+
+<blockquote>
+<p>shamelessly stolen from https://tallamjr.github.io/blog/2024/06/17/-maintaining-code-quality-with-pre-commit/</p>
+</blockquote>
+<p>Some tips and tools to help keep research software <em>reproducible, reliable</em> and <em>robust</em>.</p>
+<figure markdown="span">
+    ![](https://imgs.xkcd.com/comics/code_quality.png){ width=100% }
+  <figcaption>Code quality..</figcaption>
+</figure>
+<span id="continue-reading"></span>
+<p>In the realm of research software engineering, writing clean, maintainable, and
+reproducible code is essential. Researchers often develop software that is
+shared among teams, published at conferences or journals, or used to derive
+critical results in adjacent fields. Adhering to best practices ensures that
+your code is not only reliable but understandable and reproducible. This post
+will hopefully give some motivation with examples and showcase several
+technologies that can help make putting the best practises into practice easier.</p>
+<p>The post will focus on using <code>pre-commit</code> for maintaining (or enforcing,
+depending how you look at it) code quality, while other posts that will follow
+will cover <code>pytest</code> for testing, and <code>git</code> for version control.</p>
+<h2 id="grey-queswhy-best-practices-matter">❓Why Best Practices Matter</h2>
+<ol>
+<li><strong>Reproducibility</strong>: Ensures that research findings can be consistently replicated.</li>
+<li><strong>Collaboration</strong>: Makes it easier for team members to understand and contribute to the project.</li>
+<li><strong>Maintenance</strong>: Reduces the technical debt and makes the code easier to maintain and extend.</li>
+<li><strong>Reliability</strong>: Helps in catching bugs and issues early, ensuring robust software.</li>
+</ol>
+<h2 id="white-check-mark-code-quality-with-pre-commit">✅ <strong>Code Quality with <code>pre-commit</code></strong></h2>
+<p>Maintaining code quality is critical, and the <code>pre-commit</code> framework helps
+automate this by running checks before code is committed. While some may seen
+code style or quality a non-issue, having a consistent style or checking for
+linting errors can relive the mental burden of the programmer significantly. It
+is also amazingly easy to automate so why not get tools in place so you don't
+need to even think about it.</p>
+<p>While other frameworks are out there such as Husky<sup class="footnote-reference"><a href="#1">1</a></sup> and Overcommit<sup class="footnote-reference"><a href="#2">2</a></sup>
+<code>pre-commit</code> allows developers to define a set of checks (hooks) that run before
+a commit is made, ensuring code quality and consistency before it enters the
+repository. These hooks can perform tasks such as code formatting, linting,
+checking for secrets, or running tests. Originally created by Yelp in 2014, the
+goal was to provide a common interface for pre-commit hooks across different
+languages and projects, promoting best practices and code quality from the very
+start of the development process.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>https://typicode.github.io/husky/
+<sup class="footnote-reference"><a href="#2">2</a></sup>: https://github.com/sds/overcommit</p>
+</div>
+<h3 id="getting-started-with-pre-commit">Getting Started with pre-commit</h3>
+<ol>
+<li><strong>Installation</strong>:</li>
+</ol>
+<p>The easiest way to install is via <code>pip</code>, but other options available too such as
+<code>conda</code> etc. Let's put together a minimal repo and install our first pre-commit
+checks.</p>
+<p>???+ info
+For this demo example I will use other additional technologies but feel free
+to use whichever you are familiar with. This example will feature Hatch.</p>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ hatch new hello
+</span><span>hello
+</span><span>├── src
+</span><span>│   └── hello
+</span><span>│       ├── __about__.py
+</span><span>│       └── __init__.py
+</span><span>├── tests
+</span><span>│   └── __init__.py
+</span><span>├── LICENSE.txt
+</span><span>├── README.md
+</span><span>└── pyproject.toml
+</span><span>✔ /tmp/hello (master) :: echo &#39;print(&quot;Hello, World!&quot;)&#39; &gt;&gt; src/hello/main.py
+</span></code></pre>
+<ol start="2">
+<li><strong>Configuration</strong>:</li>
+</ol>
+<p>When it is installed, one simply creates a <code>.pre-commit-config.yml</code> file in the root of the repo like so:</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># .pre-commit-config.yml
+</span><span style="color:#bf616a;">repos</span><span>:
+</span><span>  - </span><span style="color:#bf616a;">repo</span><span>: </span><span style="color:#a3be8c;">https://github.com/pre-commit/pre-commit-hooks
+</span><span>    </span><span style="color:#bf616a;">rev</span><span>: </span><span style="color:#a3be8c;">v4.0.1
+</span><span>    </span><span style="color:#bf616a;">hooks</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">trailing-whitespace
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">end-of-file-fixer
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">check-yaml
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">check-added-large-files
+</span><span>  - </span><span style="color:#bf616a;">repo</span><span>: </span><span style="color:#a3be8c;">https://github.com/psf/black
+</span><span>    </span><span style="color:#bf616a;">rev</span><span>: </span><span style="color:#d08770;">24.4.2
+</span><span>    </span><span style="color:#bf616a;">hooks</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">black
+</span><span>  - </span><span style="color:#bf616a;">repo</span><span>: </span><span style="color:#a3be8c;">https://github.com/astral-sh/ruff-pre-commit
+</span><span>    </span><span style="color:#bf616a;">rev</span><span>: </span><span style="color:#a3be8c;">v0.5.5
+</span><span>    </span><span style="color:#bf616a;">hooks</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">ruff
+</span></code></pre>
+<p>Don't worry, we will cover the hooks later on...</p>
+<ol start="3">
+<li>
+<p><strong>Install pre-commit Hooks</strong>:</p>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ pre-commit install
+</span></code></pre>
+</li>
+</ol>
+<p>!!! note
+This will <em>only</em> install the necessary hooks <strong><em>locally</em></strong>. It is important
+to stress that these do not take affect upstream even after a push. So it is
+encouraged in team development there are guidelines about setting up
+pre-commit.</p>
+<p>???+ warning
+pre-commit naturally requires there to be a version control system in place
+to work. Otherwise you see the following error:
+<code>console $ pre-commit install An error has occurred: FatalError: git failed. Is it installed, and are you in a Git repository directory?  Check the log at /Users/tallam/.cache/pre-commit/pre-commit.log </code></p>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ pre-commit install
+</span><span>pre-commit installed at .git/hooks/pre-commit
+</span></code></pre>
+<ol start="4">
+<li>
+<p><strong>Run pre-commit</strong>:</p>
+<p>You can manually run all hooks on all files:</p>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ pre-commit run --all-files
+</span></code></pre>
+</li>
+</ol>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ pre-commit run --all-files
+</span><span>[INFO] Initializing environment for https://github.com/astral-sh/ruff-pre-commit.
+</span><span>[INFO] Installing environment for https://github.com/psf/black.
+</span><span>[INFO] Once installed this environment will be reused.
+</span><span>[INFO] This may take a few minutes...
+</span><span>[INFO] Installing environment for https://github.com/astral-sh/ruff-pre-commit.
+</span><span>[INFO] Once installed this environment will be reused.
+</span><span>[INFO] This may take a few minutes...
+</span><span>Trim Trailing Whitespace.................................................Passed
+</span><span>Fix End of Files.........................................................Passed
+</span><span>Check Yaml...............................................................Passed
+</span><span>Check for added large files..............................................Passed
+</span><span>black....................................................................Passed
+</span><span>ruff.....................................................................Passed
+</span></code></pre>
+<p>You may have noticed above that pre-commit has some built in checkers that are
+very useful and have been highlighted below.</p>
+<pre data-lang="yaml hl_lines" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml hl_lines "><code class="language-yaml hl_lines" data-lang="yaml hl_lines"><span># .pre-commit-config.yml
+</span><span>repos:
+</span><span>  - repo: https://github.com/pre-commit/pre-commit-hooks
+</span><span>    rev: v4.0.1
+</span><span>    hooks:
+</span><span>      - id: trailing-whitespace
+</span><span>      - id: end-of-file-fixer
+</span><span>      - id: check-yaml
+</span><span>      - id: check-added-large-files
+</span><span>  - repo: https://github.com/psf/black
+</span><span>    rev: 24.4.2
+</span><span>    hooks:
+</span><span>      - id: black
+</span><span>  - repo: https://github.com/astral-sh/ruff-pre-commit
+</span><span>    rev: v0.5.5
+</span><span>    hooks:
+</span><span>      - id: ruff
+</span></code></pre>
+<p>One simple example is <code>trailing-whitespace</code> which will fail on extra white
+space. Let's add some to the <code>main.py</code> file to see what happens.</p>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ echo &quot;     &quot; &gt;&gt; src/hello/main.py
+</span></code></pre>
+<pre data-lang="diff" style="background-color:#2b303b;color:#c0c5ce;" class="language-diff "><code class="language-diff" data-lang="diff"><span>diff --git a/src/hello/main.py b/src/hello/main.py
+</span><span>index 7df869a..3c8ba12 100644
+</span><span>--- a/src/hello/main.py
+</span><span>+++ b/src/hello/main.py
+</span><span>@@ -1 +1,2 @@
+</span><span> print(&quot;Hello, World!&quot;)
+</span><span style="color:#a3be8c;">+
+</span><span>
+</span></code></pre>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ git add . &amp;&amp; git commit -m &quot;whitespace test&quot;
+</span><span>Trim Trailing Whitespace.................................................Failed
+</span><span>- hook id: trailing-whitespace
+</span><span>- exit code: 1
+</span><span>- files were modified by this hook
+</span><span>
+</span><span>Fixing src/hello/main.py
+</span><span>
+</span><span>Fix End of Files.........................................................Failed
+</span><span>- hook id: end-of-file-fixer
+</span><span>- exit code: 1
+</span><span>- files were modified by this hook
+</span><span>
+</span><span>Fixing src/hello/main.py
+</span><span>
+</span><span>Check Yaml...........................................(no files to check)Skipped
+</span><span>Check for added large files..............................................Passed
+</span><span>black....................................................................Passed
+</span><span>ruff.....................................................................Passed
+</span><span>
+</span></code></pre>
+<p>Fail. But pre-commit can automatically apply the fix for you. So when we have another look we see it has already been removed:</p>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>$ git status
+</span><span>On branch master
+</span><span>Changes to be committed:
+</span><span>  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+</span><span>        modified:   src/hello/main.py
+</span><span>
+</span><span>Changes not staged for commit:
+</span><span>  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+</span><span>  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+</span><span>        modified:   src/hello/main.py
+</span></code></pre>
+<pre data-lang="diff" style="background-color:#2b303b;color:#c0c5ce;" class="language-diff "><code class="language-diff" data-lang="diff"><span># git diff
+</span><span>diff --git a/src/hello/main.py b/src/hello/main.py
+</span><span>index 3c8ba12..7df869a 100644
+</span><span>--- a/src/hello/main.py
+</span><span>+++ b/src/hello/main.py
+</span><span>@@ -1,2 +1 @@
+</span><span> print(&quot;Hello, World!&quot;)
+</span><span style="color:#bf616a;">-
+</span></code></pre>
+<pre data-lang="diff" style="background-color:#2b303b;color:#c0c5ce;" class="language-diff "><code class="language-diff" data-lang="diff"><span># git diff --staged
+</span><span>diff --git a/src/hello/main.py b/src/hello/main.py
+</span><span>index 7df869a..3c8ba12 100644
+</span><span>--- a/src/hello/main.py
+</span><span>+++ b/src/hello/main.py
+</span><span>@@ -1 +1,2 @@
+</span><span> print(&quot;Hello, World!&quot;)
+</span><span style="color:#a3be8c;">+
+</span><span>
+</span></code></pre>
+<p>This may seem annoying, &quot;it's only whitespace...🙄&quot;, but as you can see above,
+having the slightest change to what is expected can cause unnecessary diffs in
+the git logs. This means it makes it that much harder for your team members
+trying to get their head around complex code changes when there are random
+changes that do not change the logic of the code and just becomes a distraction.
+And trust me, when combing through 1000's of lines of code looking for a bug,
+the less distractions and diff content the better!</p>
+<p>As programmers we spend way more time reading code that writing it and so
+enforcing code quality not only applies to silly examples like whitespace, but
+even the consistency of indentation, or style of <code>if;else</code> blocks to name a few.
+I'd encourage at this point to look at the built in hooks found here:
+https://pre-commit.com/hooks.html</p>
+<p>All can make a difference and having a strict enforcement of style will make
+reading code far easier.</p>
+<p>Some particularly useful ones are <code>black</code>: the &quot;opinionated python formatter&quot;,
+<code>ruff</code>: a blazingly fast linter for python and <code>mypy</code> for pseudo-type checking
+of python code.</p>
+<h3 id="custom-hooks">Custom Hooks</h3>
+<p>The awesome thing about pre-commit is you can also create custom hooks to
+enforce specific project requirements.</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># .pre-commit-config.yaml
+</span><span style="color:#bf616a;">repos</span><span>:
+</span><span>  - </span><span style="color:#bf616a;">repo</span><span>: </span><span style="color:#a3be8c;">local
+</span><span>    </span><span style="color:#bf616a;">hooks</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">id</span><span>: </span><span style="color:#a3be8c;">custom-check
+</span><span>        </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Custom Check
+</span><span>        </span><span style="color:#bf616a;">entry</span><span>: </span><span style="color:#a3be8c;">./scripts/custom-check.sh
+</span><span>        </span><span style="color:#bf616a;">language</span><span>: </span><span style="color:#a3be8c;">script
+</span><span>        </span><span style="color:#bf616a;">files</span><span>: </span><span style="color:#a3be8c;">\.py$
+</span></code></pre>
+<pre data-lang="bash title" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash title "><code class="language-bash title" data-lang="bash title"><span>
+</span><span>#!/bin/bash
+</span><span># Custom script for checking something specific
+</span><span>echo &quot;Running custom check&quot;
+</span></code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hopefully this has given you some motivation and also pointed you in the
+direction where you can learn more about enforcing code quality in your
+projects. Always strive to automate everything and if you can automate code
+quality checks, why not?!</p>
+<p>Happy coding! And be forceful <em>with style</em></p>
+<figure markdown="span">
+    ![](https://pbs.twimg.com/media/Dd1rIQwWsAAfmFE?format=jpg&name=medium){ width=80% }
+</figure>
+
+
+<p class="tags-data">
+  
+  
+  <a href="/tags/reproducable-research">&#47;reproducable-research&#47;</a>
+  
+  <a href="/tags/testing-testing">&#47;testing-testing&#47;</a>
+  
+  
+</p>
+
+      </main>
+      <footer>
+          <!-- <hr> -->
+<div id="footer-container">
+  
+  <div>
+    <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/anemone">Theme</a> and <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/veqev">colour theme</a> licensed under <a target="_blank" rel="noopener noreferrer" href="https://opensource.org/license/mit">MIT</a>. Built with <a target="_blank" rel="noopener noreferrer" href="https://www.getzola.org">Zola</a> 🦀.
+    </p>
+
+  </div>
+  
+</div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - testing-testing</title>
+    <link href="https://benjaminetheridge.com/tags/testing-testing/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://benjaminetheridge.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-09-12T00:00:00+00:00</updated>
+    <id>https://benjaminetheridge.com/tags/testing-testing/atom.xml</id>
+    <entry xml:lang="en">
+        <title>🧩 Maintaining code quality with pre-commit</title>
+        <published>2024-09-12T00:00:00+00:00</published>
+        <updated>2024-09-12T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://benjaminetheridge.com/writing/pre-commit/" type="text/html"/>
+        <id>https://benjaminetheridge.com/writing/pre-commit/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;shamelessly stolen from https:&#x2F;&#x2F;tallamjr.github.io&#x2F;blog&#x2F;2024&#x2F;06&#x2F;17&#x2F;-maintaining-code-quality-with-pre-commit&#x2F;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Some tips and tools to help keep research software &lt;em&gt;reproducible, reliable&lt;&#x2F;em&gt; and &lt;em&gt;robust&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;figure markdown=&quot;span&quot;&gt;
+    ![](https:&#x2F;&#x2F;imgs.xkcd.com&#x2F;comics&#x2F;code_quality.png){ width=100% }
+  &lt;figcaption&gt;Code quality..&lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>📝 Very Very Very Long Title And Very Very Very Short Content</title>
+        <published>2020-07-08T00:00:00+00:00</published>
+        <updated>2020-07-08T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://benjaminetheridge.com/writing/very-very-very-long-title-and-very-very-very-short-content/" type="text/html"/>
+        <id>https://benjaminetheridge.com/writing/very-very-very-long-title-and-very-very-very-short-content/</id>
+        
+        <content type="html">&lt;p&gt;hello world&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
