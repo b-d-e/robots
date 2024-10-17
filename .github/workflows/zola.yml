@@ -26,7 +26,7 @@ jobs:
       - name: Deploy via SSH
         run: |
           ssh -o StrictHostKeyChecking=no be@login.robots.ox.ac.uk << 'EOF'
-            cd /robots
+            cd robots
             git pull origin master
             ./robots.sh  # Replace with your script
           EOF
