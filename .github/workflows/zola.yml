@@ -28,6 +28,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no be@login.robots.ox.ac.uk << 'EOF'
             cd robots
             git pull origin master
-            ./robots.sh  # Replace with your script
+            sh robots.sh  
           EOF
 
