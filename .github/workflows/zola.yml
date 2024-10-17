@@ -1,19 +1,32 @@
-# # On every push this script is executed
-# on: push
-# name: Build and deploy GH Pages
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     if: github.ref == 'refs/heads/master'
-#     steps:
-#       - name: checkout
-#         uses: actions/checkout@v4
-#       - name: build_and_deploy
-#         uses: shalzz/zola-deploy-action@v0.17.2
-#         env:
-#           # Target branch
-#           PAGES_BRANCH: gh-pages
-#           # Provide personal access token
-#           # TOKEN: ${{ secrets.TOKEN }}
-#           # Or if publishing to the same repo, use the automatic token
-#           TOKEN: ${{ secrets.GITHUB_TOKEN }}
+name: Deploy via SSH
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up SSH agent with the private key
+      - name: Set up SSH Agent
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.KEY }}  
+
+      # Step 3: SSH into the server and execute commands
+      - name: Deploy via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no be@login.robots.ox.ac.uk << 'EOF'
+            cd /robots
+            git pull origin master
+            ./robots.sh  # Replace with your script
+          EOF
+
