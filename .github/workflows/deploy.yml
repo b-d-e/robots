@@ -22,11 +22,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.KEY }}  
 
-      # Step 3: SSH into the server and execute commands
+      # Step 3: SSH into the server and execute commands quietly
       - name: Deploy via SSH
         run: |
-          ssh -q -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          script -q -c "ssh -q -T -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd robots
-            git pull origin master
-            sh robots_publish.sh  
-          EOF
+            git pull origin master 
+            sh robots_publish.sh 
+          EOF" /dev/null
