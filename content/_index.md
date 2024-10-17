@@ -2,7 +2,7 @@
 title="Benjamin Etheridge"
 +++
 
-# Benji Etheridge
+# Benjamin Etheridge
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div>
