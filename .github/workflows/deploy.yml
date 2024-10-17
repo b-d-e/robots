@@ -25,9 +25,9 @@ jobs:
       # Step 3: SSH into the server and execute commands
       - name: Deploy via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no be@login.robots.ox.ac.uk << 'EOF'
+            ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd robots
             git pull origin master
-            sh robots.sh  
+            sh robots_publish.sh  
           EOF
 
