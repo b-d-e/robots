@@ -23,10 +23,6 @@ DPhil (PhD) student in the [Machine Learning Research Group](https://robots.ox.a
 Senior Research Assistant (part-time) at [The Alan Turing Institute](https://turing.ac.uk/).
 Previously, Computer Science MEng at Durham University.
 
-## Contact
-be[at]robots[dot]ox[dot]ac[dot]uk
-<!-- [PGP Key](/pgp) -->
-
 ## Links
 - [github/b-d-e](https://github.com/b-d-e)
 
@@ -44,3 +40,9 @@ be[at]robots[dot]ox[dot]ac[dot]uk
 - [twitter/bthrdg](https://x.com/bthrdg)
 - [orcid/0009-0009-1325-7554](https://orcid.org/0009-0009-1325-7554)
 - [linkedin/b-d-e](https://www.linkedin.com/in/b-d-e/)
+
+## Contact
+be[at]robots[dot]ox[dot]ac[dot]uk
+
+*[PGP Key](/pgp)*
+
