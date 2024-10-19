@@ -44,5 +44,5 @@ Previously, Computer Science MEng at Durham University.
 ## Contact
 be[at]robots[dot]ox[dot]ac[dot]uk
 
-*[PGP Key](/pgp)*
+[PGP Key](pgp/)
 
