@@ -1,8 +1,8 @@
 {% set pdfs = load_data(path="talks_pdfs.json", format="json") %}
 <ul>
     {% for pdf in pdfs %}
-        <li>
-            <a href="/talks/{{ pdf.file }}">{{ pdf.title }}</a> ({{ pdf.date }})
-        </li>
+    <li>
+        <a href="{{ get_url(path="talks/" ~ pdf.file, trailing_slash=false) }}">{{ pdf.title }}</a> ({{ pdf.date }})
+    </li>
     {% endfor %}
 </ul>
