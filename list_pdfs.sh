@@ -11,7 +11,7 @@ echo "[" > $OUTPUT_FILE
 for pdf in $TALKS_DIR/*.pdf; do
     filename=$(basename -- "$pdf")
     title="${filename%.*}" # Remove extension for the title
-    date=$(stat -f "%Sm" -t "%Y-%m-%d" "$pdf") # Get the modification date in YYYY-MM-DD format
+    date=$(git log --follow --format=%aI -- "$pdf" | tail -1 | cut -d'T' -f1)
     echo "  { \"file\": \"$filename\", \"title\": \"$title\", \"date\": \"$date\" }," >> $OUTPUT_FILE
 done
 
