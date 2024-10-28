@@ -27,7 +27,8 @@ jobs:
         run: |
           export SSH_ASKPASS=/bin/true
           setsid ssh -q -o StrictHostKeyChecking=no -o LogLevel=ERROR -T ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            rm -r robots
+            git clone --recurse-submodules git@github.com:b-d-e/robots.git > /dev/null 2>&1
             cd robots
-            git pull --recurse-submodules origin master > /dev/null 2>&1
             sh robots_publish.sh > /dev/null 2>&1
           EOF
