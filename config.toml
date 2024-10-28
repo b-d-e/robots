@@ -25,7 +25,7 @@ favicon = "favicon.png"
 
 header_nav = [
    #{ url = "", name_en = "" }
-   { url = "/", name_en = " /home" },
+   { url = "/", name_en = "/home" },
    { url = "/talks", name_en = "/talks" },
    #{ url = "/publications", name_en = " /publications" }, 
    #{ url = "/writing", name_en = " /writing" }
