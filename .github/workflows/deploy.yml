@@ -28,6 +28,6 @@ jobs:
           export SSH_ASKPASS=/bin/true
           setsid ssh -q -o StrictHostKeyChecking=no -o LogLevel=ERROR -T ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd robots
-            git pull origin master > /dev/null 2>&1
+            git pull --recurse-submodules origin master > /dev/null 2>&1
             sh robots_publish.sh > /dev/null 2>&1
           EOF
