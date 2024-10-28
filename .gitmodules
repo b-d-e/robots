@@ -4,3 +4,9 @@
 [submodule "themes/apollo"]
 	path = themes/apollo
 	url = https://github.com/not-matthias/apollo
+[submodule "static/--force"]
+	path = static/--force
+	url = git@github.com:b-d-e/talks.git
+[submodule "static/talks"]
+	path = static/talks
+	url = git@github.com:b-d-e/talks.git
