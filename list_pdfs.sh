@@ -19,7 +19,10 @@ capitalize_first_letter() {
 for pdf in "$TALKS_DIR"/*.pdf; do
     filename=$(basename -- "$pdf")
     title=$(capitalize_first_letter "$(replace_underscores_and_dashes "${filename%.*}")") # Remove extension and prettify title
-    date=$(git log --follow --format=%aI -- "$pdf" | tail -1 | cut -d'T' -f1)
+
+    # Get the creation date of the file in the repo
+    date=$(git log --diff-filter=A --format=%aI -- "$pdf" | tail -1 | cut -d'T' -f1)
+
     echo "  { \"file\": \"$filename\", \"title\": \"$title\", \"date\": \"$date\" }," >> "$OUTPUT_FILE"
 done
 
