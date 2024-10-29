@@ -7,6 +7,3 @@
 [submodule "static/--force"]
 	path = static/--force
 	url = git@github.com:b-d-e/talks.git
-[submodule "static/talks"]
-	path = static/talks
-	url = git@github.com:b-d-e/talks.git
