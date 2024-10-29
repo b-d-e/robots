@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Define the directory with PDFs
 TALKS_DIR="static/talks"
@@ -27,7 +27,7 @@ for pdf in "$TALKS_DIR"/*.pdf; do
 done
 
 # Remove the trailing comma from the last entry and close the array
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [ "$OSTYPE" = "darwin"* ]; then
     # macOS-specific sed syntax
     sed -i '' '$ s/,$//' "$OUTPUT_FILE"
 else
