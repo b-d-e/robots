@@ -44,7 +44,7 @@ sorted_entries=$(printf "%s\n" "${entries[@]}" | sort -t'"' -k6,6r)
 
 # Write sorted entries to the output file
 for entry in $sorted_entries; do
-    echo "  $entry," >> "../$OUTPUT_FILE"
+    echo "  $entry," >> "../../$OUTPUT_FILE"
 done
 
 # Go back to the original directory
