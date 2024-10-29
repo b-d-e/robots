@@ -18,33 +18,15 @@ capitalize_first_letter() {
 # Change directory to TALKS_DIR to get the correct Git context
 cd "$TALKS_DIR" || exit 1
 
-# Declare an array to hold the entries
-entries=()
-
-# Loop through each PDF and add it to the array
+# Loop through each PDF and add it to the JSON file
 for pdf in ./*.pdf; do
-    if [ ! -f "$pdf" ]; then
-        continue
-    fi
-
     filename=$(basename -- "$pdf")
     title=$(capitalize_first_letter "$(replace_underscores_and_dashes "${filename%.*}")") # Remove extension and prettify title
 
     # Get the creation date of the file in the submodule repo
     date=$(git log --diff-filter=A --format=%aI -- "$pdf" | tail -1 | cut -d'T' -f1)
 
-    # Only add to the entries if a date is found
-    if [ -n "$date" ]; then
-        entries+=("{ \"file\": \"$filename\", \"title\": \"$title\", \"date\": \"$date\" }")
-    fi
-done
-
-# Sort entries by date in reverse order
-sorted_entries=$(printf "%s\n" "${entries[@]}" | sort -t'"' -k6,6r)
-
-# Write sorted entries to the output file
-for entry in $sorted_entries; do
-    echo "  $entry," >> "../../$OUTPUT_FILE"
+    echo "  { \"file\": \"$filename\", \"title\": \"$title\", \"date\": \"$date\" }," >> "../../$OUTPUT_FILE"
 done
 
 # Go back to the original directory
