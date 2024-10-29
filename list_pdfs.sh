@@ -26,7 +26,7 @@ for pdf in ./*.pdf; do
     # Get the creation date of the file in the submodule repo
     date=$(git log --diff-filter=A --format=%aI -- "$pdf" | tail -1 | cut -d'T' -f1)
 
-    echo "  { \"file\": \"$filename\", \"title\": \"$title\", \"date\": \"$date\" }," >> "../$OUTPUT_FILE"
+    echo "  { \"file\": \"$filename\", \"title\": \"$title\", \"date\": \"$date\" }," >> "../../$OUTPUT_FILE"
 done
 
 # Go back to the original directory
