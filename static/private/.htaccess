@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Project X"
+AuthUserFile /homes/48/be/internal-htpasswd
+require valid-user
